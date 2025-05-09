@@ -1,0 +1,115 @@
+
+/* ===== Cooking with Fitz Stylesheet ===== */
+
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fff8f2;
+  font-family: 'Georgia', serif;
+  color: #3d2c2c;
+  line-height: 1.7;
+  padding: 30px 20px;
+}
+
+/* Banner */
+.cooking-banner {
+  background: #ffe0b3;
+  text-align: center;
+  padding: 50px 20px;
+  border-bottom: 5px solid #f2a154;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cooking-banner h1 {
+  font-size: 3em;
+  color: #5a3e36;
+  position: relative;
+  letter-spacing: 1px;
+}
+
+.chicken-o {
+  position: relative;
+  display: inline-block;
+}
+
+.chicken-o img {
+  position: absolute;
+  top: -35px;
+  left: -10px;
+  height: 60px;
+  width: auto;
+  transform: rotate(-10deg);
+  pointer-events: none;
+}
+
+/* Main Content Area */
+.main-content {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Headings */
+.main-content h2 {
+  color: #c75b39;
+  margin-bottom: 15px;
+  font-size: 2em;
+  border-bottom: 2px dashed #f2a154;
+  padding-bottom: 10px;
+}
+
+/* Paragraphs */
+.main-content p {
+  margin-bottom: 20px;
+  font-size: 1.1em;
+  text-align: justify;
+}
+
+/* Recipe Images */
+.recipe-img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+
+/* Links */
+a {
+  color: #e46a17;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Footer (Optional) */
+.footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.9em;
+  color: #777;
+}
+.cooking-banner {
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  padding: 20px 0;
+  border-bottom: 2px solid #ddd;
+}
+
+.cooking-banner img {
+  max-width: 100%;
+  height: auto;
+}
