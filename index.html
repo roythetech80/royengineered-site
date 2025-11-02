@@ -1,72 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="description" content="Roy Alleyne – IT Infrastructure, Cybersecurity, and Cloud Portfolio Site">
   <meta property="og:title" content="RaaS">
   <meta property="og:description" content="Showcasing 18+ years of IT experience, certifications, and résumé">
   <meta property="og:image" content="https://www.royengineered.net/images/ceo.jpg">
   <meta property="og:url" content="https://www.royengineered.net">
-  <title>Roy Alleyne | RaaS (Roy as a Service)</title>
-      <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Roy Alleyne - RaaS(Roy as a Service)</title>
-    <link rel="stylesheet" href="style.css" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Roy Alleyne | Proven IT Professional</title>
+
+  <!-- Tailwind for layout / cards / form -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Your custom CSS for .profile-pic, .button, .cert-grid, etc -->
+  <link rel="stylesheet" href="style.css" />
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
 </head>
-<body>
-    <header>
-        <img src="images/ceo.jpg" alt="Roy Alleyne" class="profile-pic"/>
-        <h1>Roy Alleyne</h1>
-        <p>IT Professional | Cybersecurity | AI | 18+ Years Experience</p>
-       <a href="Roy_Alleyne_Resume.zip" class="button" target="_blank" download>
-  Download Résumé (ZIP)</a>
-        <main>
-        <section class="bio">
-            <p>Driven by a passion for emerging technologies, I bring over 18 years of hands-on IT experience with a solutions-oriented mindset. My background blends deep technical expertise with strong interpersonal skills, allowing me to deliver real impact across infrastructure, support, and strategy—adding value to any IT environment I join.</p>
-        </section>
-        <section class="certifications">
-            <h2>Professional Certificates and Certifications</h2>
-            <div class="cert-grid">
-                <img src="images/certs/Professional_Certificate_-_AI_Engineering.png" alt="IBM AI Engineering" />
-                <img src="images/certs/hdi-sca-badge.jpg" alt="HDI SCA" />
-                <img src="images/certs/m365-image.png" alt="Microsoft 365 Certified: Endpoint Administrator Associate" />
-                <img src="images/certs/mcp-badge.png" alt="Microsoft Certified Professional" />
-                <img src="images/certs/ceh-v12.png" alt="Certified Ethical Hacker v12" />
-            </div>
-        </section>
-    </main>
-    <!-- Services Section -->
-<section id="services" class="py-12 bg-blue-900 text-white text-center">
-  <h2 class="text-3xl font-semibold mb-6">Services</h2>
-  <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
 
-    <!-- PC Repair -->
-    <div class="p-6 bg-blue-800 rounded-2xl shadow-lg">
-      <img src="images/pc-repair.png" alt="PC Repair Icon" class="mx-auto mb-4 w-24 h-24">
-      <h3 class="text-2xl font-semibold mb-3">PC Repair</h3>
-      <p>Hardware and software diagnostics, performance optimization, and full system rebuilds for desktops and laptops.</p>
-      <p class="mt-3 text-blue-300 font-semibold">Starting at $80 per service</p>
-      <a href="mailto:royalleynejr@icloud.com?subject=Service%20Request%3A%20PC%20Repair&body=Hi%20Roy%2C%0A%0AI%27d%20like%20to%20request%20help%20with%20PC%20Repair.%20Please%20let%20me%20know%20your%20availability.%0A%0AThank%20you."
-         class="inline-block mt-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-xl transition">
-         Request Quote
-      </a>
-    </div>
+<body class="bg-blue-900 text-white font-sans">
 
-    <!-- Virus & Malware Removal -->
-    <div class="p-6 bg-blue-800 rounded-2xl shadow-lg">
-      <img src="images/virus-removal.png" alt="Virus and Malware Removal Icon" class="mx-auto mb-4 w-24 h-24">
-      <h3 class="text-2xl font-semibold mb-3">Virus & Malware Removal</h3>
-      <p>Comprehensive malware, ransomware, and spyware removal to restore system security, stability, and performance.</p>
-      <p class="mt-3 text-blue-300 font-semibold">Flat rate: $100–$150</p>
-      <a href="mailto:royalleynejr@icloud.com?subject=Service%20Request%3A%20Virus%20and%20Malware%20Removal&body=Hi%20Roy%2C%0A%0AI%27d%20like%20to%20request%20help%20with%20virus%20removal.%20Please%20let%20me%20know%20your%20availability.%0A%0AThank%20you."
-         class="inline-block mt-4 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-xl transition">
-         Request Quote
-      </a>
-    </div>
+  <!-- ========= HEADER / HERO ========= -->
+  <header class="text-center py-8 bg-blue-900">
+    <img src="images/ceo.jpg" alt="Roy Alleyne" class="profile-pic mx-auto"/>
+    <h1 class="text-3xl font-bold mt-4">Roy Alleyne</h1>
+    <p class="mt-2 text-blue-200">
+      IT Professional | Cybersecurity | AI | 18+ Years Experience
+    </p>
 
-  </div>
-</section>
-</footer>
+    <a
+      href="Roy_Alleyne_Resume.zip"
+      class="button inline-block mt-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-4 rounded-xl shadow-md transition"
+      target="_blank"
+      download
+    >
+      Download Résumé (ZIP)
+    </a>
+  </header>
+
+  <!-- ========= MAIN CONTENT ========= -->
+  <main class="bg-blue-900">
+
+    <!-- Bio -->
+    <section class="bio max-w-4xl mx-auto px-6 py-8 text-center">
+      <p class="text-blue-100 text-lg leading-relaxed">
+        Driven by a passion for emerging technologies, I bring over 18 years of hands-on IT experience with a
+        solutions-oriented mindset. My background blends deep technical expertise with strong interpersonal skills,
+        allowing me to deliver real impact across infrastructure, support, and strategy—adding value to any IT
+        environment I join.
+      </p>
+    </section>
+
+    <!-- Certifications -->
+    <section class="certifications max-w-4xl mx-auto px-6 py-8 text-center">
+      <h2 class="text-2xl font-semibold mb-6">Professional Certificates and Certifications</h2>
+
+      <div class="cert-grid grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 place-items-center">
+        <img src="images/certs/Professional_Certificate_-_AI_Engineering.png"
+             alt="IBM AI Engineering"
+             class="max-h-24 object-contain bg-white rounded-lg p-2" />
+
+        <img src="images/certs/hdi-sca-badge.jpg"
+             alt="HDI SCA"
+             class="max-h-24 object-contain bg-white rounded-lg p-2" />
+
+        <img src="images/certs/m365-image.png"
+             alt="Microsoft 365 Certified: Endpoint Administrator Associate"
+             class="max-h-24 object-contain bg-white rounded-lg p-2" />
+
+        <img src="images/certs/mcp-badge.png"
+             alt="Microsoft Certified Professional"
+             class="max-h-24 object-contain bg-white rounded-lg p-2" />
+
+        <img src="images/certs/ceh-v12.png"
+             alt="Certified Ethical Hacker v12"
+             class="max-h-24 object-contain bg-white rounded-lg p-2" />
+      </div>
+    </section>
+
+    <!-- ========= SERVICES SECTION ========= -->
+    <section id="services" class="py-12 text-center bg-blue-900">
+      <h2 class="text-3xl font-semibold mb-8 text-white">Services</h2>
+
+      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-6">
+
+        <!-- PC Repair Card -->
+        <div class="bg-blue-800 rounded-2xl shadow-lg p-8 flex flex-col items-center text-white">
+          <img
+            src="images/pc-repair.png"
+            alt="PC Repair"
+            class="w-32 h-32 mb-6 object-contain"
+          />
+          <h3 class="text-2xl font-semibold mb-3">PC Repair</h3>
+          <p class="mb-4 text-blue-100 text-lg text-center">
+            Hardware and software diagnostics, performance optimization, and full system rebuilds
+            for desktops and laptops.
+          </p>
+          <p class="text-xl mb-6 text-blue-200">
+            Starting at <span class="font-semibold text-white">$80</span> per service
+          </p>
+
+          <a
+            href="#contact"
+            class="quote-btn bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-6 rounded-xl shadow-md transition"
+            data-service="PC Repair"
+          >
+            Request Quote
+          </a>
+        </div>
+
+        <!-- Virus & Malware Removal Card -->
+        <div class="bg-blue-800 rounded-2xl shadow-lg p-8 flex flex-col items-center text-white">
+          <img
+            src="images/virus.png"
+            alt="Virus and Malware Removal"
+            class="w-32 h-32 mb-6 object-contain"
+          />
+          <h3 class="text-2xl font-semibold mb-3">Virus &amp; Malware Removal</h3>
+          <p class="mb-4 text-blue-100 text-lg text-center">
+            Comprehensive malware, ransomware, and spyware removal to restore system security,
+            stability, and performance.
+          </p>
+          <p class="text-xl mb-6 text-blue-200">
+            Flat rate: <span class="font-semibold text-white">$100–$150</span>
+          </p>
+
+          <a
+            href="#contact"
+            class="quote-btn bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-6 rounded-xl shadow-md transition"
+            data-service="Virus & Malware Removal"
+          >
+            Request Quote
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========= CONTACT / QUOTE FORM ========= -->
+    <section id="contact" class="py-12 bg-blue-950 text-white text-center">
+      <h2 class="text-3xl font-semibold mb-6">Request a Quote</h2>
+      <p class="text-blue-200 max-w-xl mx-auto mb-8">
+        Tell me what you need help with. I’ll get back to you ASAP.
+      </p>
+
+      <!-- This form emails you at royalleynejr@icloud.com -->
+      <form
+        action="https://formsubmit.co/royalleynejr@icloud.com"
+        method="POST"
+        class="max-w-xl mx-auto bg-blue-800 p-6 rounded-2xl shadow-lg text-left space-y-4"
+      >
+        <!-- FormSubmit options (hidden fields) -->
+        <!-- Disable the built-in captcha -->
+        <input type="hidden" name="_captcha" value="false" />
+        <!-- Where to send user after submit -->
+        <input type="hidden" name="_next" value="https://www.royengineered.net/thank-you.html" />
+        <!-- Subject line of the email you get -->
+        <input type="hidden" name="_subject" value="New Service Request from RoyEngineered.net" />
+
+        <!-- Name -->
+        <div>
+          <label class="block text-sm font-medium mb-1">Your Name</label>
+          <input
+            type="text"
+            name="name"
+            required
+            class="w-full rounded-lg px-3 py-2 text-black outline-none focus:ring-2 focus:ring-blue-400"
+          />
+        </div>
+
+        <!-- Email -->
+        <div>
+          <label class="block text-sm font-medium mb-1">Email</label>
+          <input
+            type="email"
+            name="email"
+            required
+            class="w-full rounded-lg px-3 py-2 text-black outline-none focus:ring-2 focus:ring-blue-400"
+          />
+        </div>
+
+        <!-- Service Requested (auto-filled from button click) -->
+        <div>
+          <label class="block text-sm font-medium mb-1">Service Requested</label>
+          <input
+            id="serviceField"
+            type="text"
+            name="service_requested"
+            readonly
+            placeholder="Select a service above"
+            class="w-full rounded-lg px-3 py-2 text-black bg-gray-200 outline-none focus:ring-2 focus:ring-blue-400"
+          />
+        </div>
+
+        <!-- Details -->
+        <div>
+          <label class="block text-sm font-medium mb-1">Describe the issue</label>
+          <textarea
+            name="details"
+            rows="4"
+            required
+            class="w-full rounded-lg px-3 py-2 text-black outline-none focus:ring-2 focus:ring-blue-400"
+            placeholder="Example: My laptop won't boot and keeps blue-screening..."
+          ></textarea>
+        </div>
+
+        <!-- Submit -->
+        <button
+          type="submit"
+          class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 rounded-xl shadow-md transition"
+        >
+          Send Request
+        </button>
+      </form>
+
+      <p class="text-xs text-blue-400 mt-4">
+        Your info goes straight to my inbox. I do not share or sell your data.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- ========= FOOTER ========= -->
+  <footer class="text-center text-sm text-blue-300 py-6 bg-blue-950">
+    <p>&copy; <span id="year"></span> Roy Alleyne | RaaS (Roy as a Service)</p>
+  </footer>
+
+  <!-- ========= SCRIPT ========= -->
+  <script>
+    // When a "Request Quote" button is clicked,
+    // auto-fill the "Service Requested" field in the form.
+    document.querySelectorAll('.quote-btn').forEach(function(btn) {
+      btn.addEventListener('click', function () {
+        const service = this.getAttribute('data-service'); // "PC Repair", etc.
+        const field = document.getElementById('serviceField');
+        if (field) {
+          field.value = service;
+        }
+      });
+    });
+
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 
 </body>
 </html>
