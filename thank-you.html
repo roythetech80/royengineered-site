@@ -11,59 +11,51 @@
   <meta property="og:image" content="https://www.royengineered.net/images/ceo.jpg">
   <meta property="og:url" content="https://www.royengineered.net/thank-you.html">
 
-  <!-- Tailwind CDN for layout -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Your custom CSS -->
   <link rel="stylesheet" href="style.css" />
-
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-  </style>
 </head>
 
 <body class="bg-blue-900 text-white font-sans min-h-screen flex flex-col">
 
-  <!-- Header / Brand -->
+  <!-- HEADER -->
   <header class="text-center py-8 bg-blue-900">
-    <img src="images/ceo.jpg" alt="Roy Alleyne" class="profile-pic mx-auto"/>
+    <img src="images/ceo.jpg" alt="Roy Alleyne" class="profile-pic mx-auto" />
     <h1 class="text-3xl font-bold mt-4">Roy Alleyne</h1>
     <p class="mt-2 text-blue-200">
-    | IT Support • Cybersecurity • AI
+      RaaS (Roy as a Service) | IT Support • Cybersecurity • Cloud • AI
     </p>
   </header>
 
-  <!-- Main Content -->
+  <!-- MAIN -->
   <main class="flex-grow flex items-center">
     <section class="max-w-xl mx-auto bg-blue-800 rounded-2xl shadow-lg p-8 text-center">
       <h2 class="text-2xl font-semibold text-white mb-4">Request Received ✅</h2>
+
       <p class="text-blue-100 text-lg leading-relaxed mb-6">
-        Thank you for reaching out. Your request was sent successfully and is now in my inbox.
-        I’ll review what you sent and get back to you using the email you provided.
+        Thank you for reaching out! Your request was sent successfully and is now in my inbox.
+        I’ll review your details and respond as soon as possible.
       </p>
 
-      <div class="bg-blue-900/40 border border-blue-700 rounded-xl text-sm text-blue-200 p-4 mb-6">
-        <p><span class="font-semibold text-white">Tip:</span> Check your spam/junk folder just in case my reply lands there the first time.</p>
+      <div class="bg-blue-900/40 border border-blue-700 rounded-xl text-sm text-blue-200 p-4 mb-6 text-left">
+        <ul class="list-disc pl-5 space-y-2">
+          <li>If you included your <strong>callback number</strong>, I may give you a quick call to discuss your request.</li>
+          <li>If not, check your <strong>email inbox</strong> (and spam folder) for my reply.</li>
+          <li>You’ll hear from me soon — usually within one business day.</li>
+        </ul>
       </div>
 
-      <a
-        href="/"
-        class="inline-block bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 px-6 rounded-xl shadow-md transition text-base"
-      >
+      <a href="/" class="inline-block bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 px-6 rounded-xl shadow-md transition">
         Back to Home
       </a>
     </section>
   </main>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer class="text-center text-sm text-blue-300 py-6 bg-blue-950">
     <p>&copy; <span id="year"></span> Roy Alleyne | RaaS (Roy as a Service)</p>
   </footer>
 
   <script>
-    // Footer year
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 

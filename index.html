@@ -7,49 +7,42 @@
   <meta property="og:description" content="Showcasing 18+ years of IT experience, certifications, and résumé">
   <meta property="og:image" content="https://www.royengineered.net/images/ceo.jpg">
   <meta property="og:url" content="https://www.royengineered.net">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>Roy Alleyne | Proven IT Professional</title>
+  <title>Roy Alleyne | RoyEngineered.net</title>
 
   <!-- Tailwind for layout / cards / form -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Your custom CSS for .profile-pic, .button, .cert-grid, etc -->
   <link rel="stylesheet" href="style.css" />
-
-  <style>
-    html {
-      scroll-behavior: smooth;
-    }
-  </style>
+  <style>html{scroll-behavior:smooth;}</style>
 </head>
 
 <body class="bg-blue-900 text-white font-sans">
 
-  <!-- ========= HEADER / HERO ========= -->
-  <header class="text-center py-8 bg-blue-900">
-    <img src="images/ceo.jpg" alt="Roy Alleyne" class="profile-pic mx-auto"/>
+  <!-- HEADER -->
+  <header class="text-center pt-8 pb-2 bg-blue-900">
+    <img src="images/ceo.jpg" alt="Roy Alleyne" class="profile-pic mx-auto" />
     <h1 class="text-3xl font-bold mt-4">Roy Alleyne</h1>
     <p class="mt-2 text-blue-200">
       IT Professional | Cybersecurity | AI | 18+ Years Experience
     </p>
 
-    <a
-      href="Roy_Alleyne_Resume.zip"
-      class="button inline-block mt-4 bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-4 rounded-xl shadow-md transition"
-      target="_blank"
-      download
-    >
-      Download Résumé (ZIP)
-    </a>
+    <div class="flex flex-col items-center gap-2 mt-4">
+      <a href="Roy_Alleyne_Resume.zip"
+         class="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-6 rounded-xl shadow-md transition"
+         target="_blank" download>Download Résumé (ZIP)</a>
+
+      <a href="https://www.linkedin.com/in/royalleynejr/"
+         target="_blank" rel="noopener noreferrer"
+         class="bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-6 rounded-xl shadow-md transition">
+         LinkedIn</a>
+    </div>
   </header>
 
-  <!-- ========= MAIN CONTENT ========= -->
+  <!-- MAIN -->
   <main class="bg-blue-900">
 
     <!-- Bio -->
-    <section class="bio max-w-4xl mx-auto px-6 py-8 text-center">
+    <section class="bio max-w-5xl mx-auto px-6 pt-6 pb-10 text-center">
       <p class="text-blue-100 text-lg leading-relaxed">
         Driven by a passion for emerging technologies, I bring over 18 years of hands-on IT experience with a
         solutions-oriented mindset. My background blends deep technical expertise with strong interpersonal skills,
@@ -60,160 +53,126 @@
 
     <!-- Certifications -->
     <section class="certifications max-w-4xl mx-auto px-6 py-8 text-center">
-      <h2 class="text-2xl font-semibold mb-6">Professional Certificates and Certifications</h2>
-
+      <h2 class="text-2xl font-semibold mb-6 text-white">Professional Certificates and Certifications</h2>
       <div class="cert-grid grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 place-items-center">
-        <img src="images/certs/Professional_Certificate_-_AI_Engineering.png"
-             alt="IBM AI Engineering"
+        <img src="images/certs/Professional_Certificate_-_AI_Engineering.png" alt="IBM AI Engineering"
              class="max-h-24 object-contain bg-white rounded-lg p-2" />
-
-        <img src="images/certs/hdi-sca-badge.jpg"
-             alt="HDI SCA"
+        <img src="images/certs/hdi-sca-badge.jpg" alt="HDI SCA"
              class="max-h-24 object-contain bg-white rounded-lg p-2" />
-
-        <img src="images/certs/m365-image.png"
-             alt="Microsoft 365 Certified: Endpoint Administrator Associate"
+        <img src="images/certs/m365-image.png" alt="Microsoft 365 Certified: Endpoint Administrator Associate"
              class="max-h-24 object-contain bg-white rounded-lg p-2" />
-
-        <img src="images/certs/mcp-badge.png"
-             alt="Microsoft Certified Professional"
+        <img src="images/certs/mcp-badge.png" alt="Microsoft Certified Professional"
              class="max-h-24 object-contain bg-white rounded-lg p-2" />
-
-        <img src="images/certs/ceh-v12.png"
-             alt="Certified Ethical Hacker v12"
+        <img src="images/certs/ceh-v12.png" alt="Certified Ethical Hacker v12"
              class="max-h-24 object-contain bg-white rounded-lg p-2" />
       </div>
     </section>
 
-    <!-- ========= SERVICES SECTION ========= -->
+    <!-- SERVICES -->
     <section id="services" class="py-12 text-center bg-blue-900">
       <h2 class="text-3xl font-semibold mb-8 text-white">Services</h2>
-
       <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-6">
 
-        <!-- PC Repair Card -->
-<div class="bg-blue-800 rounded-2xl shadow-lg p-8 flex flex-col items-center text-white">
-  <img
-    src="images/pc-repair.png"
-    alt="PC Repair"
-    class="w-full max-w-[200px] h-auto mb-6 object-contain"
-  />
-  <h3 class="text-2xl font-semibold mb-3">PC Repair</h3>
-  <p class="mb-4 text-blue-100 text-lg text-center">
-    Hardware and software diagnostics, performance optimization, and full system rebuilds
-    for desktops and laptops.
-  </p>
-  <p class="text-xl mb-6 text-blue-200">
-    Starting at <span class="font-semibold text-white">$80</span> per service
-  </p>
-  <a
-    href="#contact"
-    class="quote-btn bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-6 rounded-xl shadow-md transition"
-    data-service="PC Repair"
-  >
-    Request Quote
-  </a>
-</div>
+        <!-- PC Repair -->
+        <div class="bg-blue-800 rounded-2xl shadow-lg p-8 flex flex-col items-center text-white min-h-[430px]">
+          <img src="images/pc-repair.png" alt="PC Repair"
+               class="w-full max-w-[200px] h-auto mb-6 object-contain" />
+          <h3 class="text-2xl font-semibold mb-3">PC Repair</h3>
+          <p class="mb-4 text-blue-100 text-lg text-center">
+            Hardware and software diagnostics, performance optimization, and full system rebuilds for desktops and laptops.
+          </p>
+          <p class="text-xl mb-6 text-blue-200">
+            Starting at <span class="font-semibold text-white">$80</span> per service
+          </p>
+          <a href="#contact" class="quote-btn bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-6 rounded-xl shadow-md transition"
+             data-service="PC Repair">Request Quote</a>
+        </div>
 
-<!-- Virus & Malware Removal Card -->
-<div class="bg-blue-800 rounded-2xl shadow-lg p-8 flex flex-col items-center text-white">
-  <img
-    src="images/virus-removal.png"
-    alt="Virus and Malware Removal"
-    class="w-full max-w-[200px] h-auto mb-6 object-contain"
-  />
-  <h3 class="text-2xl font-semibold mb-3">Virus &amp; Malware Removal</h3>
-  <p class="mb-4 text-blue-100 text-lg text-center">
-    Comprehensive malware, ransomware, and spyware removal to restore system security,
-    stability, and performance.
-  </p>
-  <p class="text-xl mb-6 text-blue-200">
-    Flat rate: <span class="font-semibold text-white">$100–$150</span>
-  </p>
-  <a
-    href="#contact"
-    class="quote-btn bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-6 rounded-xl shadow-md transition"
-    data-service="Virus & Malware Removal"
-  >
-    Request Quote
-  </a>
-</div>
+        <!-- Virus & Malware -->
+        <div class="bg-blue-800 rounded-2xl shadow-lg p-8 flex flex-col items-center text-white min-h-[430px]">
+          <img src="images/virus-removal.png" alt="Virus and Malware Removal"
+               class="w-full max-w-[200px] h-auto mb-6 object-contain" />
+          <h3 class="text-2xl font-semibold mb-3">Virus &amp; Malware Removal</h3>
+          <p class="mb-4 text-blue-100 text-lg text-center">
+            Comprehensive malware, ransomware, and spyware removal to restore system security, stability, and performance.
+          </p>
+          <p class="text-xl mb-6 text-blue-200">
+            Flat rate: <span class="font-semibold text-white">$100–$150</span>
+          </p>
+          <a href="#contact" class="quote-btn bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-6 rounded-xl shadow-md transition"
+             data-service="Virus & Malware Removal">Request Quote</a>
+        </div>
 
+      </div>
     </section>
 
-    <!-- ========= CONTACT / QUOTE FORM ========= -->
+    <!-- CONTACT FORM -->
     <section id="contact" class="py-12 bg-blue-950 text-white text-center">
       <h2 class="text-3xl font-semibold mb-6">Request a Quote</h2>
       <p class="text-blue-200 max-w-xl mx-auto mb-8">
         Tell me what you need help with. I’ll get back to you ASAP.
       </p>
 
-      <!-- This form emails you at royalleynejr@icloud.com -->
-      <form
-        action="https://formsubmit.co/royalleynejr@icloud.com"
-        method="POST"
-        class="max-w-xl mx-auto bg-blue-800 p-6 rounded-2xl shadow-lg text-left space-y-4"
-      >
-        <!-- FormSubmit options (hidden fields) -->
-        <!-- Disable the built-in captcha -->
+      <form action="https://formsubmit.co/royalleynejr@icloud.com" method="POST"
+            class="max-w-xl mx-auto bg-blue-800 p-6 rounded-2xl shadow-lg text-left space-y-4">
         <input type="hidden" name="_captcha" value="false" />
-        <!-- Where to send user after submit -->
         <input type="hidden" name="_next" value="https://www.royengineered.net/thank-you.html" />
-        <!-- Subject line of the email you get -->
         <input type="hidden" name="_subject" value="New Service Request from RoyEngineered.net" />
 
         <!-- Name -->
         <div>
           <label class="block text-sm font-medium mb-1">Your Name</label>
-          <input
-            type="text"
-            name="name"
-            required
-            class="w-full rounded-lg px-3 py-2 text-black outline-none focus:ring-2 focus:ring-blue-400"
-          />
+          <input type="text" name="name" required
+                 class="w-full rounded-lg px-3 py-2 text-black outline-none focus:ring-2 focus:ring-blue-400" />
         </div>
 
         <!-- Email -->
         <div>
           <label class="block text-sm font-medium mb-1">Email</label>
-          <input
-            type="email"
-            name="email"
-            required
-            class="w-full rounded-lg px-3 py-2 text-black outline-none focus:ring-2 focus:ring-blue-400"
-          />
+          <input type="email" name="email" required
+                 class="w-full rounded-lg px-3 py-2 text-black outline-none focus:ring-2 focus:ring-blue-400" />
         </div>
 
-        <!-- Service Requested (auto-filled from button click) -->
+        <!-- Callback Number -->
+        <div>
+          <label class="block text-sm font-medium mb-1">Callback Number</label>
+          <input type="tel" name="phone"
+                 placeholder="(555) 123-4567"
+                 pattern="[0-9()+\-\s]{7,20}"
+                 class="w-full rounded-lg px-3 py-2 text-black outline-none focus:ring-2 focus:ring-blue-400" />
+        </div>
+
+        <!-- Service Requested Dropdown -->
         <div>
           <label class="block text-sm font-medium mb-1">Service Requested</label>
-          <input
-            id="serviceField"
-            type="text"
-            name="service_requested"
-            readonly
-            placeholder="Select a service above"
-            class="w-full rounded-lg px-3 py-2 text-black bg-gray-200 outline-none focus:ring-2 focus:ring-blue-400"
-          />
+          <select id="serviceField" name="service_requested"
+                  class="w-full rounded-lg px-3 py-2 text-black bg-gray-200 outline-none focus:ring-2 focus:ring-blue-400" required>
+            <option value="">Select a service…</option>
+            <option value="PC Repair">PC Repair</option>
+            <option value="Virus & Malware Removal">Virus & Malware Removal</option>
+            <option value="Other / Not Sure">Other / Not Sure</option>
+          </select>
+        </div>
+
+        <!-- "Other" Description -->
+        <div id="otherServiceWrapper" class="hidden">
+          <label class="block text-sm font-medium mb-1">What do you need?</label>
+          <input id="otherServiceInput" type="text" name="other_service_description"
+                 placeholder="Example: Data recovery, Wi-Fi setup, new build, etc."
+                 class="w-full rounded-lg px-3 py-2 text-black bg-gray-200 outline-none focus:ring-2 focus:ring-blue-400" />
         </div>
 
         <!-- Details -->
         <div>
           <label class="block text-sm font-medium mb-1">Describe the issue</label>
-          <textarea
-            name="details"
-            rows="4"
-            required
-            class="w-full rounded-lg px-3 py-2 text-black outline-none focus:ring-2 focus:ring-blue-400"
-            placeholder="Example: My laptop won't boot and keeps blue-screening..."
-          ></textarea>
+          <textarea name="details" rows="4" required
+                    class="w-full rounded-lg px-3 py-2 text-black outline-none focus:ring-2 focus:ring-blue-400"
+                    placeholder="Example: My laptop won't boot and keeps blue-screening..."></textarea>
         </div>
 
         <!-- Submit -->
-        <button
-          type="submit"
-          class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 rounded-xl shadow-md transition"
-        >
+        <button type="submit"
+                class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 rounded-xl shadow-md transition">
           Send Request
         </button>
       </form>
@@ -225,28 +184,34 @@
 
   </main>
 
-  <!-- ========= FOOTER ========= -->
   <footer class="text-center text-sm text-blue-300 py-6 bg-blue-950">
-    <p>&copy; <span id="year"></span> RoyEngineered </p>
+    <p>&copy; <span id="year"></span> Roy Alleyne | RoyEngineered.net</p>
   </footer>
 
-  <!-- ========= SCRIPT ========= -->
   <script>
-    // When a "Request Quote" button is clicked,
-    // auto-fill the "Service Requested" field in the form.
-    document.querySelectorAll('.quote-btn').forEach(function(btn) {
-      btn.addEventListener('click', function () {
-        const service = this.getAttribute('data-service'); // "PC Repair", etc.
-        const field = document.getElementById('serviceField');
-        if (field) {
-          field.value = service;
+    // Auto-select service on "Request Quote" click
+    document.querySelectorAll('.quote-btn').forEach(btn=>{
+      btn.addEventListener('click',function(){
+        const service=this.getAttribute('data-service');
+        const dropdown=document.getElementById('serviceField');
+        if(dropdown){
+          dropdown.value=service;
+          document.getElementById('otherServiceWrapper').classList.add('hidden');
         }
       });
     });
 
-    // Footer year
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+    // Show "Other" input dynamically
+    const serviceDropdown=document.getElementById('serviceField');
+    const otherWrapper=document.getElementById('otherServiceWrapper');
+    if(serviceDropdown){
+      serviceDropdown.addEventListener('change',function(){
+        if(this.value==='Other / Not Sure'){otherWrapper.classList.remove('hidden');}
+        else{otherWrapper.classList.add('hidden');}
+      });
+    }
 
+    document.getElementById("year").textContent=new Date().getFullYear();
+  </script>
 </body>
 </html>
