@@ -213,137 +213,284 @@
 
     document.getElementById("year").textContent=new Date().getFullYear();
   </script>
-<!-- ==== RoyEngineered Chatbot Widget ==== -->
+<!-- ===== RoyEngineered Chatbot Widget ===== -->
 <div id="re-chatbot-root"></div>
 <script>
 (function () {
+  // 🔗 Your live Lambda URL
   const CHAT_API_URL = "https://dwhulhmnkf5wilgd6wbisv3kda0tgdfn.lambda-url.us-east-1.on.aws/";
-  // --- Test Lambda connection ---
-fetch(CHAT_API_URL, {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ message: "Hello RoyBot!" })
-})
-  .then(res => res.json())
-  .then(data => console.log("Lambda replied:", data))
-  .catch(err => console.error("Lambda error:", err));
 
+  // --- Styles injected into <head> ---
+  const style = document.createElement("style");
+  style.textContent = `
+    #reChatFab {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 56px;
+      height: 56px;
+      border-radius: 9999px;
+      border: none;
+      background: #2563eb;
+      color: #ffffff;
+      font-size: 26px;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    #reChatFab:hover {
+      background: #1d4ed8;
+    }
 
+    #reChatPanel {
+      position: fixed;
+      bottom: 96px;
+      right: 24px;
+      width: 340px;
+      max-width: calc(100vw - 32px);
+      height: 460px;
+      background: #0f172a;
+      color: #e5e7eb;
+      border-radius: 18px;
+      box-shadow: 0 25px 50px rgba(15, 23, 42, 0.7);
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+      z-index: 9999;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
 
-  // --- Styles ---
-  const css = `
-    #reChatFab { position: fixed; bottom: 20px; right: 20px; z-index: 99999; width: 56px; height: 56px; border-radius: 9999px; background: #0ea5e9; color: #fff; display: grid; place-items: center; cursor: pointer; box-shadow: 0 10px 25px rgba(0,0,0,.2); border: 0; }
-    #reChatFab:hover { filter: brightness(1.05); }
-    #reChatPanel { position: fixed; bottom: 88px; right: 20px; width: 360px; max-width: 92vw; height: 520px; max-height: 70vh; background: #0b1220; color: #e5e7eb; border-radius: 16px; box-shadow: 0 20px 60px rgba(0,0,0,.45); overflow: hidden; display: none; z-index: 99999; border: 1px solid #1f2937; }
-    #reChatHeader { display:flex; align-items:center; justify-content:space-between; padding: 10px 12px; background: #0f172a; border-bottom: 1px solid #1f2937; }
-    #reChatHeader h4 { margin: 0; font: 600 14px system-ui, -apple-system, Segoe UI, Roboto; color: #e2e8f0; }
-    #reChatHeader button { background: transparent; color: #94a3b8; border: none; cursor: pointer; font-size: 18px; }
-    #reChatMsgs { height: calc(100% - 48px - 64px); overflow: auto; padding: 12px; }
-    .msg { margin: 8px 0; display:flex; gap:8px; }
-    .msg.ai { justify-content: flex-start; }
-    .msg.me { justify-content: flex-end; }
-    .bubble { max-width: 78%; padding: 10px 12px; border-radius: 14px; font: 14px/1.5 system-ui, -apple-system, Segoe UI, Roboto; white-space: pre-wrap; }
-    .ai .bubble { background: #111827; color:#e5e7eb; border: 1px solid #1f2937; }
-    .me .bubble { background: #0ea5e9; color: #fff; }
-    #reChatInputBar { height: 64px; display:flex; gap:8px; padding: 10px; border-top: 1px solid #1f2937; background:#0b1220; }
-    #reChatInput { flex:1; border-radius: 10px; background:#0f172a; border:1px solid #1f2937; color:#e5e7eb; padding:10px 12px; font: 14px system-ui, -apple-system, Segoe UI, Roboto; outline:none; }
-    #reChatSend { border-radius: 10px; padding: 0 14px; border: 1px solid #1f2937; background: #10b981; color: #0b1220; font: 600 14px system-ui, -apple-system, Segoe UI, Roboto; cursor: pointer; }
-    #reChatSend[disabled]{ opacity:.6; cursor:not-allowed; }
-    .brand { font-size: 11px; color:#94a3b8; margin-top: 6px; text-align:center; }
+    #reChatPanel.re-open {
+      display: flex;
+    }
+
+    #reChatHeader {
+      padding: 12px 14px;
+      background: linear-gradient(to right, #1d4ed8, #4f46e5);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    #reChatHeaderTitle {
+      font-size: 14px;
+      font-weight: 600;
+    }
+    #reChatHeaderSub {
+      font-size: 11px;
+      opacity: 0.85;
+    }
+    #reChatClose {
+      border: none;
+      background: transparent;
+      color: #e5e7eb;
+      font-size: 18px;
+      cursor: pointer;
+      padding: 0 4px;
+    }
+
+    #reChatMessages {
+      flex: 1;
+      padding: 10px 10px 4px;
+      overflow-y: auto;
+      font-size: 13px;
+      background: radial-gradient(circle at top left, #1e293b, #020617);
+    }
+
+    .re-msg-row {
+      margin-bottom: 8px;
+      display: flex;
+    }
+    .re-msg-row.re-user {
+      justify-content: flex-end;
+    }
+    .re-msg-bubble {
+      max-width: 78%;
+      padding: 7px 10px;
+      border-radius: 12px;
+      line-height: 1.35;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      box-shadow: 0 4px 10px rgba(15,23,42,0.55);
+    }
+    .re-user .re-msg-bubble {
+      background: #2563eb;
+      color: #ffffff;
+      border-bottom-right-radius: 4px;
+    }
+    .re-assistant .re-msg-bubble {
+      background: #111827;
+      color: #e5e7eb;
+      border-bottom-left-radius: 4px;
+    }
+
+    #reChatStatus {
+      font-size: 11px;
+      padding: 2px 10px 0;
+      min-height: 16px;
+      opacity: 0.75;
+    }
+
+    #reChatForm {
+      padding: 6px 8px 8px;
+      border-top: 1px solid rgba(55,65,81,0.7);
+      background: #020617;
+      display: flex;
+      gap: 6px;
+    }
+    #reChatInput {
+      flex: 1;
+      border-radius: 9999px;
+      border: 1px solid rgba(75,85,99,0.9);
+      background: #020617;
+      color: #e5e7eb;
+      padding: 7px 10px;
+      font-size: 13px;
+      outline: none;
+    }
+    #reChatInput:focus {
+      border-color: #3b82f6;
+      box-shadow: 0 0 0 1px rgba(59,130,246,0.5);
+    }
+    #reChatSend {
+      border-radius: 9999px;
+      border: none;
+      background: #3b82f6;
+      color: white;
+      padding: 0 14px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #reChatSend:disabled {
+      opacity: 0.6;
+      cursor: default;
+    }
   `;
-  const style = document.createElement('style');
-  style.textContent = css;
   document.head.appendChild(style);
 
-  // --- DOM structure ---
-  const root = document.getElementById('re-chatbot-root');
-  const fab = document.createElement('button');
-  fab.id = 'reChatFab';
-  fab.title = 'Chat with RE IT Consulting';
-  fab.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 12c0 4.418-4.03 8-9 8a9.9 9.9 0 0 1-4.03-.84L3 20l.84-3.97A8.9 8.9 0 0 1 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8Z" stroke="currentColor" stroke-width="1.5"/><path d="M7.5 12h.01M12 12h.01M16.5 12h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+  // --- Build widget UI ---
+  const root = document.getElementById("re-chatbot-root");
+  if (!root) return;
 
-  const panel = document.createElement('div');
-  panel.id = 'reChatPanel';
-  panel.innerHTML = `
-    <div id="reChatHeader">
-      <h4>RoyEngineered Assistant</h4>
-      <div>
-        <button id="reChatMin" title="Minimize">—</button>
-        <button id="reChatClose" title="Close">×</button>
+  root.innerHTML = `
+    <button id="reChatFab" aria-label="Chat with RoyEngineered assistant">💬</button>
+    <div id="reChatPanel" role="dialog" aria-labelledby="reChatHeaderTitle">
+      <div id="reChatHeader">
+        <div>
+          <div id="reChatHeaderTitle">RoyEngineered Assistant</div>
+          <div id="reChatHeaderSub">RE IT Consulting • PC & laptop help</div>
+        </div>
+        <button id="reChatClose" aria-label="Close chat">×</button>
       </div>
+      <div id="reChatMessages"></div>
+      <div id="reChatStatus"></div>
+      <form id="reChatForm">
+        <input id="reChatInput" type="text" placeholder="Ask about repairs, services, pricing..." autocomplete="off" />
+        <button id="reChatSend" type="submit">Send</button>
+      </form>
     </div>
-    <div id="reChatMsgs"></div>
-    <div id="reChatInputBar">
-      <input id="reChatInput" type="text" placeholder="Ask about services, pricing, or tech help..." />
-      <button id="reChatSend">Send</button>
-    </div>
-    <div class="brand">RE IT Consulting • royengineered.net</div>
   `;
-  root.appendChild(fab);
-  root.appendChild(panel);
 
-  const msgs = panel.querySelector('#reChatMsgs');
-  const input = panel.querySelector('#reChatInput');
-  const sendBtn = panel.querySelector('#reChatSend');
-  const sessionId = crypto.randomUUID ? crypto.randomUUID() : Math.random().toString(36).slice(2);
+  const fab = document.getElementById("reChatFab");
+  const panel = document.getElementById("reChatPanel");
+  const closeBtn = document.getElementById("reChatClose");
+  const form = document.getElementById("reChatForm");
+  const input = document.getElementById("reChatInput");
+  const sendBtn = document.getElementById("reChatSend");
+  const messagesEl = document.getElementById("reChatMessages");
+  const statusEl = document.getElementById("reChatStatus");
 
-  function addMsg(role, text){
-    const row = document.createElement('div');
-    row.className = `msg ${role}`;
-    const bubble = document.createElement('div');
-    bubble.className = 'bubble';
+  // --- UI helpers ---
+  function togglePanel(open) {
+    const shouldOpen = typeof open === "boolean" ? open : !panel.classList.contains("re-open");
+    if (shouldOpen) {
+      panel.classList.add("re-open");
+      input.focus();
+    } else {
+      panel.classList.remove("re-open");
+    }
+  }
+
+  function addMessage(role, text) {
+    const row = document.createElement("div");
+    row.className = `re-msg-row re-${role}`;
+
+    const bubble = document.createElement("div");
+    bubble.className = `re-msg-bubble re-${role}`;
     bubble.textContent = text;
+
     row.appendChild(bubble);
-    msgs.appendChild(row);
-    msgs.scrollTop = msgs.scrollHeight;
+    messagesEl.appendChild(row);
+    messagesEl.scrollTop = messagesEl.scrollHeight;
   }
 
-  async function callBackend(q) {
-    if (!CHAT_API_URL) {
-      await new Promise(r => setTimeout(r, 200));
-      return { reply: "Demo mode: connect AWS Lambda or API Gateway and set CHAT_API_URL in this script." };
-    }
-    const res = await fetch(CHAT_API_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: q, sessionId })
-    });
-    if (!res.ok) throw new Error(await res.text());
-    return res.json();
+  function setStatus(text) {
+    statusEl.textContent = text || "";
   }
 
-  async function sendMessage(){
-    const q = input.value.trim();
-    if(!q) return;
-    addMsg('me', q);
-    input.value = '';
+  // --- Networking ---
+  async function sendMessageToLambda(message) {
+    setStatus("Thinking...");
     sendBtn.disabled = true;
-    try{
-      const data = await callBackend(q);
-      addMsg('ai', data.reply || '…');
-    }catch(err){
-      console.error(err);
-      addMsg('ai', 'Sorry—something went wrong. Try again soon.');
-    }finally{
+    input.disabled = true;
+
+    try {
+      const res = await fetch(CHAT_API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          message,
+          sessionId: "royengineered-web"
+        })
+      });
+
+      if (!res.ok) {
+        console.error("Lambda HTTP error", res.status, await res.text());
+        addMessage("assistant", "Hmm, I couldn’t reach the RoyEngineered server. Please try again.");
+        return;
+      }
+
+      const data = await res.json();
+      const replyText = (data && data.reply) || "Sorry, I couldn’t generate a response.";
+      addMessage("assistant", replyText);
+    } catch (err) {
+      console.error("Chat error:", err);
+      addMessage("assistant", "Something went wrong while contacting RoyEngineered. Please try again in a moment.");
+    } finally {
       sendBtn.disabled = false;
+      input.disabled = false;
+      setStatus("");
+      input.focus();
     }
   }
 
-  sendBtn.addEventListener('click', sendMessage);
-  input.addEventListener('keydown', e => { if(e.key === 'Enter') sendMessage(); });
+  // --- Event wiring ---
+  fab.addEventListener("click", () => togglePanel(true));
+  closeBtn.addEventListener("click", () => togglePanel(false));
 
-  fab.addEventListener('click', ()=>{ panel.style.display = 'block'; input.focus(); });
-  panel.querySelector('#reChatMin').addEventListener('click', ()=>{ panel.style.display = 'none'; });
-  panel.querySelector('#reChatClose').addEventListener('click', ()=>{ panel.style.display = 'none'; });
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const text = input.value.trim();
+    if (!text) return;
+    addMessage("user", text);
+    input.value = "";
+    sendMessageToLambda(text);
+  });
 
-  // Initial friendly message
-  setTimeout(()=>{
-    panel.style.display = 'block';
-    addMsg('ai', 'Hey! Need help with RE IT Consulting, pricing, or a quick tech fix? Ask away!');
-  }, 800);
+  // --- Initial greeting ---
+  addMessage(
+    "assistant",
+    "Hi! I’m the RoyEngineered assistant. I can help with PC/laptop repair questions, pricing, and RE IT Consulting services."
+  );
 })();
 </script>
-<!-- ==== End Chatbot Widget ==== -->
+<!-- ===== End Chatbot Widget ===== -->
 
 </body>
 </html>
