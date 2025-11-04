@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="description" content="Roy Alleyne – IT Infrastructure, Cybersecurity, and Cloud Portfolio Site">
-  <meta property="og:title" content="RaaS">
+  <meta property="og:title" content="R-E IT Consulting & services">
   <meta property="og:description" content="Showcasing 18+ years of IT experience, certifications, and résumé">
   <meta property="og:image" content="https://www.royengineered.net/images/ceo.jpg">
   <meta property="og:url" content="https://www.royengineered.net">
@@ -11,6 +11,7 @@
   <title>Roy Alleyne | RoyEngineered.net</title>
 
   <!-- Tailwind for layout / cards / form -->
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="style.css" />
   <style>html{scroll-behavior:smooth;}</style>
@@ -68,125 +69,23 @@
       </div>
     </section>
 
-    <!-- SERVICES -->
-    <section id="services" class="py-12 text-center bg-blue-900">
-      <h2 class="text-3xl font-semibold mb-8 text-white">Services</h2>
-      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-6">
+    
 
-        <!-- PC Repair -->
-        <div class="bg-blue-800 rounded-2xl shadow-lg p-8 flex flex-col items-center text-white min-h-[430px]">
-          <img src="images/pc-repair.png" alt="PC Repair"
-               class="w-full max-w-[200px] h-auto mb-6 object-contain" />
-          <h3 class="text-2xl font-semibold mb-3">PC Repair</h3>
-          <p class="mb-4 text-blue-100 text-lg text-center">
-            Hardware and software diagnostics, performance optimization, and full system rebuilds for desktops and laptops.
-          </p>
-          <p class="text-xl mb-6 text-blue-200">
-            Starting at <span class="font-semibold text-white">$80</span> per service
-          </p>
-          <a href="#contact" class="quote-btn bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-6 rounded-xl shadow-md transition"
-             data-service="PC Repair">Request Quote</a>
-        </div>
+   <!-- FULL-WIDTH FOOTER -->
+<footer class="w-full bg-gradient-to-b from-[#1e3a8a] to-[#0f1e4d] text-white text-center py-6 shadow-inner">
+  <p class="text-sm mb-2">
+    © Roy Alleyne 2025 | 
+    <a href="https://royengineered.net" class="underline hover:text-blue-300">RoyEngineered.net</a> | RE IT Consulting
+  </p>
+  <nav class="space-x-6 text-sm">
+    <a href="index.html" class="hover:text-blue-300">Home</a>
+    <a href="services.html" class="hover:text-blue-300">Services</a>
+    <a href="https://www.linkedin.com/in/royalleynejr" target="_blank" rel="noopener noreferrer" class="hover:text-blue-300">LinkedIn</a>
+    <a href="mailto:royalleynejr@icloud.com" class="hover:text-blue-300">Contact</a>
+  </nav>
+</footer>
 
-        <!-- Virus & Malware -->
-        <div class="bg-blue-800 rounded-2xl shadow-lg p-8 flex flex-col items-center text-white min-h-[430px]">
-          <img src="images/virus-removal.png" alt="Virus and Malware Removal"
-               class="w-full max-w-[200px] h-auto mb-6 object-contain" />
-          <h3 class="text-2xl font-semibold mb-3">Virus &amp; Malware Removal</h3>
-          <p class="mb-4 text-blue-100 text-lg text-center">
-            Comprehensive malware, ransomware, and spyware removal to restore system security, stability, and performance.
-          </p>
-          <p class="text-xl mb-6 text-blue-200">
-            Flat rate: <span class="font-semibold text-white">$100–$150</span>
-          </p>
-          <a href="#contact" class="quote-btn bg-blue-600 hover:bg-blue-500 text-white font-semibold py-2 px-6 rounded-xl shadow-md transition"
-             data-service="Virus & Malware Removal">Request Quote</a>
-        </div>
 
-      </div>
-    </section>
-
-    <!-- CONTACT FORM -->
-    <section id="contact" class="py-12 bg-blue-950 text-white text-center">
-      <h2 class="text-3xl font-semibold mb-6">Request a Quote</h2>
-      <p class="text-blue-200 max-w-xl mx-auto mb-8">
-        Tell me what you need help with. I’ll get back to you ASAP.
-      </p>
-
-      <form action="https://formsubmit.co/royalleynejr@icloud.com" method="POST"
-            class="max-w-xl mx-auto bg-blue-800 p-6 rounded-2xl shadow-lg text-left space-y-4">
-        <input type="hidden" name="_captcha" value="false" />
-        <input type="hidden" name="_next" value="https://www.royengineered.net/thank-you.html" />
-        <input type="hidden" name="_subject" value="New Service Request from RoyEngineered.net" />
-
-        <!-- Name -->
-        <div>
-          <label class="block text-sm font-medium mb-1">Your Name</label>
-          <input type="text" name="name" required
-                 class="w-full rounded-lg px-3 py-2 text-black outline-none focus:ring-2 focus:ring-blue-400" />
-        </div>
-
-        <!-- Email -->
-        <div>
-          <label class="block text-sm font-medium mb-1">Email</label>
-          <input type="email" name="email" required
-                 class="w-full rounded-lg px-3 py-2 text-black outline-none focus:ring-2 focus:ring-blue-400" />
-        </div>
-
-        <!-- Callback Number -->
-        <div>
-          <label class="block text-sm font-medium mb-1">Callback Number</label>
-          <input type="tel" name="phone"
-                 placeholder="(555) 123-4567"
-                 pattern="[0-9()+\-\s]{7,20}"
-                 class="w-full rounded-lg px-3 py-2 text-black outline-none focus:ring-2 focus:ring-blue-400" />
-        </div>
-
-        <!-- Service Requested Dropdown -->
-        <div>
-          <label class="block text-sm font-medium mb-1">Service Requested</label>
-          <select id="serviceField" name="service_requested"
-                  class="w-full rounded-lg px-3 py-2 text-black bg-gray-200 outline-none focus:ring-2 focus:ring-blue-400" required>
-            <option value="">Select a service…</option>
-            <option value="PC Repair">PC Repair</option>
-            <option value="Virus & Malware Removal">Virus & Malware Removal</option>
-            <option value="Other / Not Sure">Other / Not Sure</option>
-          </select>
-        </div>
-
-        <!-- "Other" Description -->
-        <div id="otherServiceWrapper" class="hidden">
-          <label class="block text-sm font-medium mb-1">What do you need?</label>
-          <input id="otherServiceInput" type="text" name="other_service_description"
-                 placeholder="Example: Data recovery, Wi-Fi setup, new build, etc."
-                 class="w-full rounded-lg px-3 py-2 text-black bg-gray-200 outline-none focus:ring-2 focus:ring-blue-400" />
-        </div>
-
-        <!-- Details -->
-        <div>
-          <label class="block text-sm font-medium mb-1">Describe the issue</label>
-          <textarea name="details" rows="4" required
-                    class="w-full rounded-lg px-3 py-2 text-black outline-none focus:ring-2 focus:ring-blue-400"
-                    placeholder="Example: My laptop won't boot and keeps blue-screening..."></textarea>
-        </div>
-
-        <!-- Submit -->
-        <button type="submit"
-                class="w-full bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 rounded-xl shadow-md transition">
-          Send Request
-        </button>
-      </form>
-
-      <p class="text-xs text-blue-400 mt-4">
-        Your info goes straight to my inbox. I do not share or sell your data.
-      </p>
-    </section>
-
-  </main>
-
-  <footer class="text-center text-sm text-blue-300 py-6 bg-blue-950">
-    <p>&copy; <span id="year"></span> Roy Alleyne | RoyEngineered.net</p>
-  </footer>
 
   <script>
     // Auto-select service on "Request Quote" click
