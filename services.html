@@ -5,75 +5,95 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Services | R-E IT Consulting</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+
   <style>
     html { scroll-behavior: smooth; }
-    #reChatFab {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      background-color: #2563eb;
-      color: white;
-      border-radius: 50%;
-      width: 56px;
-      height: 56px;
-      font-size: 24px;
+
+    /* R-E IT Consulting Logo Section */
+    .reit-logo-section {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      z-index: 1000;
-    }
-    #reChatPanel {
-      position: fixed;
-      bottom: 90px;
-      right: 24px;
-      background-color: #1e3a8a;
-      border-radius: 16px;
-      width: 360px;
-      max-height: 500px;
-      display: none;
       flex-direction: column;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-      z-index: 1001;
-      overflow: hidden;
+      align-items: center;      /* centers logo + title horizontally */
+      justify-content: center;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      text-align: center;
     }
-    #reChatHeader {
-      background-color: #2563eb;
-      color: white;
-      padding: 12px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-weight: bold;
+
+    .reit-logo {
+      width: 260px;
+      max-width: 80%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      filter: drop-shadow(0 0 8px #0078D7);
+      transition: transform 0.3s ease, filter 0.3s ease;
     }
-    #reChatMessages {
-      padding: 12px;
-      overflow-y: auto;
-      flex-grow: 1;
-      background-color: #1e40af;
-      color: #e0e7ff;
-      font-size: 14px;
+
+    .reit-logo:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(0 0 14px #33A1FF);
     }
-    #reChatForm {
-      display: flex;
-      border-top: 1px solid #3b82f6;
+
+    .reit-title {
+      font-size: 1.8rem;
+      color: #E0EFFF;
+      margin-top: 10px;
+      text-shadow: 0 0 8px #0078D7, 0 0 14px #1E90FF;
+      letter-spacing: 0.5px;
+      margin-bottom: 24px;
     }
-    #reChatInput {
-      flex-grow: 1;
-      padding: 10px;
+
+    /* Request Quote buttons */
+    .request-quote-btn {
+      background: #0078D7;
+      color: #ffffff;
       border: none;
-      outline: none;
-      font-size: 14px;
-      color: black;
-    }
-    #reChatSend {
-      background-color: #3b82f6;
-      color: white;
-      padding: 0 16px;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
       cursor: pointer;
-      border: none;
-      border-radius: 0 0 16px 0;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 6px #0078D7, inset 0 0 4px #1E90FF;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .request-quote-btn:hover {
+      background: #1E90FF;
+      box-shadow: 0 0 12px #33A1FF, 0 0 18px #66C0FF, inset 0 0 8px #33A1FF;
+      transform: translateY(-2px);
+    }
+
+    /* Service cards */
+    .service-card {
+      background: #1E3A8A; /* similar to bg-blue-800 */
+      border-radius: 1.5rem;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 0 6px rgba(0, 120, 215, 0.2);
+      transition: all 0.3s ease;
+      text-align: center;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 0 14px #0078D7, 0 0 22px #33A1FF;
+    }
+
+    @media (max-width: 768px) {
+      .reit-logo {
+        width: 200px;
+      }
+
+      .reit-title {
+        font-size: 1.4rem;
+      }
+
+      .service-card {
+        padding: 2rem 1.5rem;
+      }
     }
   </style>
 </head>
@@ -83,8 +103,8 @@
   <header class="text-center py-10">
     <img src="images/ceo.jpg" alt="Profile" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-blue-700" />
     <h1 class="text-3xl font-bold">Roy Alleyne</h1>
-    
     <p class="text-blue-200">IT Professional | Cybersecurity | AI | 18+ Years Experience</p>
+
     <nav class="mt-4 space-x-6">
       <a href="index.html" class="hover:text-blue-400">Home</a>
       <a href="services.html" class="hover:text-blue-400">Services</a>
@@ -94,51 +114,62 @@
   </header>
 
   <!-- Services Section -->
-  <section id="services" class="py-12 text-center">
-    <h2 class="text-3xl font-semibold mb-8">R-E IT Consulting &amp; Services</h2>
-
-    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 px-6">
-      <!-- PC Repair -->
-      <div class="bg-blue-800 rounded-3xl shadow-xl px-8 py-10">
-        <div class="flex justify-center mb-6">
-          <img src="images/pc-repair.png" alt="PC Repair Icon" class="w-52 h-auto" />
-        </div>
-        <h3 class="text-2xl font-semibold mb-3">PC Repair</h3>
-        <p class="text-blue-100 max-w-md mx-auto">
-          Hardware and software diagnostics, performance optimization, and full system rebuilds for desktops and laptops.
-        </p>
-        <p class="mt-4 text-blue-200">
-          Starting at <span class="font-semibold">$80</span> per service
-        </p>
-        <a
-          href="#quote-form"
-          data-service="PC Repair"
-          class="request-quote inline-block mt-5 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-xl transition"
-        >
-          Request Quote
-        </a>
+  <section id="services" class="pt-0 pb-12">
+    <div class="max-w-6xl mx-auto text-center">
+      
+      <!-- Logo + Title -->
+      <div class="reit-logo-section">
+        <img src="images/re-it-consulting-logo.png"
+             alt="R-E IT Consulting Logo"
+             class="reit-logo" />
+        <h2 class="reit-title">R-E IT Consulting &amp; Services</h2>
       </div>
 
-      <!-- Virus & Malware Removal -->
-      <div class="bg-blue-800 rounded-3xl shadow-xl px-8 py-10">
-        <div class="flex justify-center mb-6">
-          <img src="images/virus-removal.png" alt="Virus and Malware Removal Icon" class="w-52 h-auto" />
+      <!-- Service Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 px-6">
+        <!-- PC Repair -->
+        <div class="service-card">
+          <div class="flex justify-center mb-6">
+            <img src="images/pc-repair.png" alt="PC Repair Icon" class="w-52 h-auto" />
+          </div>
+          <h3 class="text-2xl font-semibold mb-3">PC Repair</h3>
+          <p class="text-blue-100 max-w-md mx-auto">
+            Hardware and software diagnostics, performance optimization, and full system rebuilds for desktops and laptops.
+          </p>
+          <p class="mt-4 text-blue-200">
+            Starting at <span class="font-semibold">$80</span> per service
+          </p>
+          <a
+            href="#quote-form"
+            data-service="PC Repair"
+            class="request-quote-btn mt-5"
+          >
+            Request Quote
+          </a>
         </div>
-        <h3 class="text-2xl font-semibold mb-3">Virus &amp; Malware Removal</h3>
-        <p class="text-blue-100 max-w-md mx-auto">
-          Comprehensive malware, ransomware, and spyware removal to restore system security, stability, and performance.
-        </p>
-        <p class="mt-4 text-blue-200">
-          Flat rate: <span class="font-semibold">$100–$150</span>
-        </p>
-        <a
-          href="#quote-form"
-          data-service="Virus & Malware Removal"
-          class="request-quote inline-block mt-5 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-xl transition"
-        >
-          Request Quote
-        </a>
+
+        <!-- Virus & Malware Removal -->
+        <div class="service-card">
+          <div class="flex justify-center mb-6">
+            <img src="images/virus-removal.png" alt="Virus and Malware Removal Icon" class="w-52 h-auto" />
+          </div>
+          <h3 class="text-2xl font-semibold mb-3">Virus &amp; Malware Removal</h3>
+          <p class="text-blue-100 max-w-md mx-auto">
+            Comprehensive malware, ransomware, and spyware removal to restore system security, stability, and performance.
+          </p>
+          <p class="mt-4 text-blue-200">
+            Flat rate: <span class="font-semibold">$100–$150</span>
+          </p>
+          <a
+            href="#quote-form"
+            data-service="Virus & Malware Removal"
+            class="request-quote-btn mt-5"
+          >
+            Request Quote
+          </a>
+        </div>
       </div>
+
     </div>
   </section>
 
@@ -209,312 +240,32 @@
 
   <!-- Footer -->
   <footer class="w-full bg-gradient-to-b from-[#1e3a8a] to-[#0f1e4d] text-white text-center py-6 mt-12 shadow-inner">
-  <p class="text-sm mb-2">
-    © Roy Alleyne 2025 |
-    <a href="https://royengineered.net" class="underline hover:text-blue-300">RoyEngineered.net</a> |
-    R-E IT Consulting
-  </p>
-  <nav class="space-x-6 text-sm">
-    <a href="index.html" class="hover:text-blue-300 transition-colors duration-200">Home</a>
-    <a href="services.html" class="hover:text-blue-300 transition-colors duration-200">Services</a>
-    <a href="https://www.linkedin.com/in/royalleynejr" target="_blank" rel="noopener noreferrer" class="hover:text-blue-300 transition-colors duration-200">LinkedIn</a>
-    <a href="mailto:royalleynejr@icloud.com" class="hover:text-blue-300 transition-colors duration-200">Contact</a>
-  </nav>
-</footer>
-
+    <p class="text-sm mb-2">
+      © Roy Alleyne 2025 |
+      <a href="https://royengineered.net" class="underline hover:text-blue-300">RoyEngineered.net</a> |
+      R-E IT Consulting
+    </p>
+    <nav class="space-x-6 text-sm">
+      <a href="index.html" class="hover:text-blue-300 transition-colors duration-200">Home</a>
+      <a href="services.html" class="hover:text-blue-300 transition-colors duration-200">Services</a>
+      <a href="https://www.linkedin.com/in/royalleynejr" target="_blank" rel="noopener noreferrer" class="hover:text-blue-300 transition-colors duration-200">LinkedIn</a>
+      <a href="mailto:royalleynejr@icloud.com" class="hover:text-blue-300 transition-colors duration-200">Contact</a>
+    </nav>
+  </footer>
 
   <!-- Smooth scroll + auto-select -->
   <script>
-    document.querySelectorAll('.request-quote').forEach(button => {
+    document.querySelectorAll('.request-quote-btn').forEach(button => {
       button.addEventListener('click', e => {
         e.preventDefault();
         const form = document.querySelector('#quote-form');
         const serviceDropdown = document.querySelector('#service');
         const service = button.getAttribute('data-service');
-        if (serviceDropdown) serviceDropdown.value = service;
+        if (serviceDropdown && service) serviceDropdown.value = service;
         form.scrollIntoView({ behavior: 'smooth' });
       });
     });
   </script>
-
-  <!-- ===== RoyEngineered Chatbot Widget ===== -->
-<div id="re-chatbot-root"></div>
-<script>
-(function () {
-  // 🔗 Your live Lambda URL
-  const CHAT_API_URL = "https://dwhulhmnkf5wilgd6wbisv3kda0tgdfn.lambda-url.us-east-1.on.aws/";
-
-  // --- Styles injected into <head> ---
-  const style = document.createElement("style");
-  style.textContent = `
-    #reChatFab {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      width: 56px;
-      height: 56px;
-      border-radius: 9999px;
-      border: none;
-      background: #2563eb;
-      color: #ffffff;
-      font-size: 26px;
-      cursor: pointer;
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.45);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      z-index: 9999;
-    }
-    #reChatFab:hover {
-      background: #1d4ed8;
-    }
-
-    #reChatPanel {
-      position: fixed;
-      bottom: 96px;
-      right: 24px;
-      width: 340px;
-      max-width: calc(100vw - 32px);
-      height: 460px;
-      background: #0f172a;
-      color: #e5e7eb;
-      border-radius: 18px;
-      box-shadow: 0 25px 50px rgba(15, 23, 42, 0.7);
-      display: none;
-      flex-direction: column;
-      overflow: hidden;
-      z-index: 9999;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-
-    #reChatPanel.re-open {
-      display: flex;
-    }
-
-    #reChatHeader {
-      padding: 12px 14px;
-      background: linear-gradient(to right, #1d4ed8, #4f46e5);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    #reChatHeaderTitle {
-      font-size: 14px;
-      font-weight: 600;
-    }
-    #reChatHeaderSub {
-      font-size: 11px;
-      opacity: 0.85;
-    }
-    #reChatClose {
-      border: none;
-      background: transparent;
-      color: #e5e7eb;
-      font-size: 18px;
-      cursor: pointer;
-      padding: 0 4px;
-    }
-
-    #reChatMessages {
-      flex: 1;
-      padding: 10px 10px 4px;
-      overflow-y: auto;
-      font-size: 13px;
-      background: radial-gradient(circle at top left, #1e293b, #020617);
-    }
-
-    .re-msg-row {
-      margin-bottom: 8px;
-      display: flex;
-    }
-    .re-msg-row.re-user {
-      justify-content: flex-end;
-    }
-    .re-msg-bubble {
-      max-width: 78%;
-      padding: 7px 10px;
-      border-radius: 12px;
-      line-height: 1.35;
-      white-space: pre-wrap;
-      word-wrap: break-word;
-      box-shadow: 0 4px 10px rgba(15,23,42,0.55);
-    }
-    .re-user .re-msg-bubble {
-      background: #2563eb;
-      color: #ffffff;
-      border-bottom-right-radius: 4px;
-    }
-    .re-assistant .re-msg-bubble {
-      background: #111827;
-      color: #e5e7eb;
-      border-bottom-left-radius: 4px;
-    }
-
-    #reChatStatus {
-      font-size: 11px;
-      padding: 2px 10px 0;
-      min-height: 16px;
-      opacity: 0.75;
-    }
-
-    #reChatForm {
-      padding: 6px 8px 8px;
-      border-top: 1px solid rgba(55,65,81,0.7);
-      background: #020617;
-      display: flex;
-      gap: 6px;
-    }
-    #reChatInput {
-      flex: 1;
-      border-radius: 9999px;
-      border: 1px solid rgba(75,85,99,0.9);
-      background: #020617;
-      color: #e5e7eb;
-      padding: 7px 10px;
-      font-size: 13px;
-      outline: none;
-    }
-    #reChatInput:focus {
-      border-color: #3b82f6;
-      box-shadow: 0 0 0 1px rgba(59,130,246,0.5);
-    }
-    #reChatSend {
-      border-radius: 9999px;
-      border: none;
-      background: #3b82f6;
-      color: white;
-      padding: 0 14px;
-      font-size: 13px;
-      font-weight: 500;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-    #reChatSend:disabled {
-      opacity: 0.6;
-      cursor: default;
-    }
-  `;
-  document.head.appendChild(style);
-
-  // --- Build widget UI ---
-  const root = document.getElementById("re-chatbot-root");
-  if (!root) return;
-
-  root.innerHTML = `
-    <button id="reChatFab" aria-label="Chat with RoyEngineered assistant">💬</button>
-    <div id="reChatPanel" role="dialog" aria-labelledby="reChatHeaderTitle">
-      <div id="reChatHeader">
-        <div>
-          <div id="reChatHeaderTitle">RoyEngineered Assistant</div>
-          <div id="reChatHeaderSub">RE IT Consulting • PC & laptop help</div>
-        </div>
-        <button id="reChatClose" aria-label="Close chat">×</button>
-      </div>
-      <div id="reChatMessages"></div>
-      <div id="reChatStatus"></div>
-      <form id="reChatForm">
-        <input id="reChatInput" type="text" placeholder="Ask about repairs, services, pricing..." autocomplete="off" />
-        <button id="reChatSend" type="submit">Send</button>
-      </form>
-    </div>
-  `;
-
-  const fab = document.getElementById("reChatFab");
-  const panel = document.getElementById("reChatPanel");
-  const closeBtn = document.getElementById("reChatClose");
-  const form = document.getElementById("reChatForm");
-  const input = document.getElementById("reChatInput");
-  const sendBtn = document.getElementById("reChatSend");
-  const messagesEl = document.getElementById("reChatMessages");
-  const statusEl = document.getElementById("reChatStatus");
-
-  // --- UI helpers ---
-  function togglePanel(open) {
-    const shouldOpen = typeof open === "boolean" ? open : !panel.classList.contains("re-open");
-    if (shouldOpen) {
-      panel.classList.add("re-open");
-      input.focus();
-    } else {
-      panel.classList.remove("re-open");
-    }
-  }
-
-  function addMessage(role, text) {
-    const row = document.createElement("div");
-    row.className = `re-msg-row re-${role}`;
-
-    const bubble = document.createElement("div");
-    bubble.className = `re-msg-bubble re-${role}`;
-    bubble.textContent = text;
-
-    row.appendChild(bubble);
-    messagesEl.appendChild(row);
-    messagesEl.scrollTop = messagesEl.scrollHeight;
-  }
-
-  function setStatus(text) {
-    statusEl.textContent = text || "";
-  }
-
-  // --- Networking ---
-  async function sendMessageToLambda(message) {
-    setStatus("Thinking...");
-    sendBtn.disabled = true;
-    input.disabled = true;
-
-    try {
-      const res = await fetch(CHAT_API_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          message,
-          sessionId: "royengineered-web"
-        })
-      });
-
-      if (!res.ok) {
-        console.error("Lambda HTTP error", res.status, await res.text());
-        addMessage("assistant", "Hmm, I couldn’t reach the RoyEngineered server. Please try again.");
-        return;
-      }
-
-      const data = await res.json();
-      const replyText = (data && data.reply) || "Sorry, I couldn’t generate a response.";
-      addMessage("assistant", replyText);
-    } catch (err) {
-      console.error("Chat error:", err);
-      addMessage("assistant", "Something went wrong while contacting RoyEngineered. Please try again in a moment.");
-    } finally {
-      sendBtn.disabled = false;
-      input.disabled = false;
-      setStatus("");
-      input.focus();
-    }
-  }
-
-  // --- Event wiring ---
-  fab.addEventListener("click", () => togglePanel(true));
-  closeBtn.addEventListener("click", () => togglePanel(false));
-
-  form.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const text = input.value.trim();
-    if (!text) return;
-    addMessage("user", text);
-    input.value = "";
-    sendMessageToLambda(text);
-  });
-
-  // --- Initial greeting ---
-  addMessage(
-    "assistant",
-    "Hi! I’m the RoyEngineered assistant. I can help with PC/laptop repair questions, pricing, and RE IT Consulting services."
-  );
-})();
-</script>
-<!-- ===== End Chatbot Widget ===== -->
 
 </body>
 </html>

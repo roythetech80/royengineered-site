@@ -65,5 +65,31 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
+/* --- R-E IT Consulting Logo Section (Services page) --- */
 
+.reit-logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;     /* reduced from 40px to 10px */
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+
+
+.reit-logo:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 14px #33A1FF);
+}
+
+.reit-title {
+  font-size: 1.8rem;
+  color: #E0EFFF;
+  margin-top: 10px;
+  text-shadow: 0 0 8px #0078D7, 0 0 14px #1E90FF;
+  letter-spacing: 0.5px;
+  margin-bottom: 24px;
+}
 
