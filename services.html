@@ -432,22 +432,35 @@
   if (!root) return;
 
   root.innerHTML = `
-    <button id="reChatFab" aria-label="Chat with RoyEngineered assistant">💬</button>
-    <div id="reChatPanel" role="dialog" aria-labelledby="reChatHeaderTitle">
-      <div id="reChatHeader">
-        <div>
-          <div id="reChatHeaderTitle">RoyEngineered Assistant</div>
-          <div id="reChatHeaderSub">RE IT Consulting • PC & laptop help</div>
-        </div>
-        <button id="reChatClose" aria-label="Close chat">×</button>
-      </div>
-      <div id="reChatMessages"></div>
-      <div id="reChatStatus"></div>
-      <form id="reChatForm">
-        <input id="reChatInput" type="text" placeholder="Ask about repairs, services, pricing..." autocomplete="off" />
-        <button id="reChatSend" type="submit">Send</button>
-      </form>
+    <button id="reChatFab" aria-label="Chat with RoyEngineered assistant">
+  <img 
+    src="images/virtualfitz.png" 
+    alt="RoyEngineered Assistant" 
+    class="reChatAvatar"
+  />
+</button>
+
+<div id="reChatPanel" role="dialog" aria-labelledby="reChatHeaderTitle">
+  <div id="reChatHeader">
+    <div>
+      <div id="reChatHeaderTitle">RoyEngineered Assistant</div>
+      <div id="reChatHeaderSub">RE IT Consulting • PC & laptop help</div>
     </div>
+    <button id="reChatClose" aria-label="Close chat">×</button>
+  </div>
+  <div id="reChatMessages"></div>
+  <div id="reChatStatus"></div>
+  <form id="reChatForm">
+    <input 
+      id="reChatInput" 
+      type="text" 
+      placeholder="Ask about repairs, services, pricing..." 
+      autocomplete="off" 
+    />
+    <button id="reChatSend" type="submit">Send</button>
+  </form>
+</div>
+
   `;
 
   const fab = document.getElementById("reChatFab");
